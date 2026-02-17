@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Sci-fi / Tech Palette */
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --background: 220 15% 10%;
+  --foreground: 220 10% 95%;
+
+  /* Tech Blue */
+  --primary: 200 90% 60%;
+  --primary-foreground: 220 15% 10%;
+
+  /* Subtle Surface */
+  --card: 220 15% 13%;
+  --card-foreground: 220 10% 95%;
+  --popover: 220 15% 13%;
+  --popover-foreground: 220 10% 95%;
+
+  /* Accents */
+  --secondary: 220 15% 18%;
+  --secondary-foreground: 220 10% 95%;
+  --muted: 220 15% 18%;
+  --muted-foreground: 220 10% 65%;
+  --accent: 190 80% 50%;
+  --accent-foreground: 220 15% 10%;
+
+  /* States */
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 220 15% 20%;
+  --input: 220 15% 20%;
+  --ring: 200 90% 60%;
+  
+  --radius: 0.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+    background-image: 
+      radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.15) 0%, transparent 50%),
+      linear-gradient(to bottom, transparent, hsl(var(--background)) 90%);
+    background-attachment: fixed;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-wide;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-card/60 backdrop-blur-md border border-white/10 shadow-xl;
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+}
